@@ -44,13 +44,14 @@ router.post("/forget", async(req,res)=>{
     const{email}=req.body;
     const response =await forgetpassword(email);
     res.status(response.status).json(response.msg);
-    setTimeout (expireString,40000,email);
+    setTimeout(stringexpired, 30000, email);
   }
   catch(error){
     console.log(error);
     res.statusCode(500);
   }
 })
+//
 
 router.post("verifyString",async(req,res)=>{
   try{
